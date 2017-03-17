@@ -1,0 +1,4 @@
+axio.name=Axio ISP
+axio.communication=serial
+axio.protocol=
+

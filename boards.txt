@@ -1,0 +1,26 @@
+# Axio DK MS500
+# ---------------------------------------
+axio_dk.name=Axio DK MS500
+axio_dk.vid.0=0x0403
+axio_dk.pid.0=0x6015
+
+axio_dk.upload.tool=axtool
+axio_dk.upload.protocol=axio
+axio_dk.upload.maximum_size=1048576
+
+axio_dk.build.mcu=cortex-m0
+axio_dk.build.f_cpu=100000000L
+axio_dk.build.usb_product="Axio DK"
+axio_dk.build.usb_manufacturer="SecurityPlatform"
+axio_dk.build.board=AXIO
+axio_dk.build.core=arduino
+axio_dk.build.extra_flags=
+axio_dk.build.ldscript=linker_script/axio.ld
+axio_dk.build.variant=axio_builder_ms500
+axio_dk.build.variant_system_lib=
+axio_dk.build.vid=0x0403
+axio_dk.build.pid=0x6015
+
+axio_dk.bootloader.tool=axtool
+axio_dk.bootloader.file={build.variant}/second_loader.bin
+
