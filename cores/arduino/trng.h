@@ -18,6 +18,10 @@
 
 #include "ewbm_device.h"
 
+#ifdef __cplusplus
+extern "C"{
+#endif // __cplusplus
+
 typedef enum
 {
     TRNG_OK             = 0,
@@ -29,5 +33,8 @@ int  ESAL_TRNG_GetRandomData(void* out, uint32_t readSz, const void* reseed);
 int  ESAL_TRNG_ReSeed(const void* nonce);
 int  ESAL_TRNG_GetSeed(void* out);
 
+#ifdef __cplusplus
+} // extern "C"
+#endif
 
 #endif

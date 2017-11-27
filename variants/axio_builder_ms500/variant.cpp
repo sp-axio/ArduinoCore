@@ -34,5 +34,17 @@ Uart Serial1(UART_BANK_1, D6, D7);
 Uart Serial3(UART_BANK_3, D4, D5);
 SPIClass SPI(SPI_BANK_1, D11, D12, D13, D10);
 
+void serialEvent() __attribute__((weak));
+void serialEvent() { }
+void serialEvent1() __attribute__((weak));
+void serialEvent1() { }
+void serialEvent3() __attribute__((weak));
+void serialEvent3() { }
+void serialEventRun(void)
+{
+  if (Serial.available()) serialEvent();
+  if (Serial1.available()) serialEvent1();
+  if (Serial3.available()) serialEvent3();
+}
 /* vim:ts=4 sw=4
  */

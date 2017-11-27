@@ -20,6 +20,7 @@
 #include "Uart.h"
 #include "Arduino.h"
 #include "wiring_private.h"
+#define UARTBUF_SIZE 256
 
 Uart::Uart(uint32_t _bank, uint8_t _pinRX, uint8_t _pinTX)
 {
@@ -82,11 +83,11 @@ void Uart::flush()
 
 void Uart::IrqHandler()
 {
-  if (UART_DataAvailable(&uart))  {
+  //if (UART_DataAvailable(&uart))  {
     uart.reg->imsc &= ~UART_IMSC_RXIM;
     rxBuffer.store_char(UART_ReceiveChar(&uart));
     uart.reg->imsc |= UART_IMSC_RXIM;
-  }
+  //}
 
   /*
   if (sercom->isUARTError()) {
@@ -127,6 +128,19 @@ size_t Uart::write(const uint8_t data)
 {
   UART_TransmitChar(&uart, data);
   return 1;
+}
+
+size_t Uart::write(uint8_t *buf, size_t count)
+{
+    uint8_t testbuf[UARTBUF_SIZE];
+    uint32_t o = 0;
+
+    if (o + count < UARTBUF_SIZE) {
+	memcpy(&testbuf[o], buf, count);
+	o += count;
+    }
+    UART_Transmit(&uart, buf, count, 0);
+    return count;
 }
 
 /* vim: sw=2
