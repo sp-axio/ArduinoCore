@@ -25,7 +25,7 @@ extern "C" {
 #endif
 
 #include "ewbm_device.h"
-
+#define __ENABLE_UART_P__
 #ifdef __ENABLE_DMA__
     #include "ewbm_dma.h"
 #endif

@@ -37,6 +37,7 @@ class Uart : public HardwareSerial
     void flush();
     size_t write(const uint8_t data);
 	size_t write(uint8_t *buf, size_t count);
+	tUART_HANDLE * getHandle();
     using Print::write; // pull in write(str) and write(buf, size) from Print
 
     void IrqHandler();

@@ -143,5 +143,8 @@ size_t Uart::write(uint8_t *buf, size_t count)
     return count;
 }
 
+tUART_HANDLE * Uart::getHandle(){
+	return  &uart;
+}
 /* vim: sw=2
  */

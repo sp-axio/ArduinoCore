@@ -17,11 +17,12 @@
 #define __PADMUX_CONFIG_H__
 
 #define SYS_PADMUX          NON
-#define SPI_PADMUX          NON
+#define SPI_PADMUX          PB0,PB1,PB2,PB3 
 #define UART_PADMUX         PA8,PA9,PB4,PB5
 #define I2C_PADMUX          NON
 #define TIMER_PADMUX        NON
-#define SDIO_PADMUX         PB10,PB11,PB12,PB13,PB14,PB15,PC0,PC1,PC2,PC3,PC4,PC6,PC7,PC8,PC9,PC10,PC11
+#define SDIO_PADMUX         NON 
 
 
+//#define SDIO_PADMUX         PB10,PB11,PB12,PB13,PB14,PB15,PC0,PC1,PC2,PC3,PC4,PC6,PC7,PC8,PC9,PC10,PC11
 #endif
